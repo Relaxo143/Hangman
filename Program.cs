@@ -17,6 +17,7 @@ namespace Hangman
         public static string[] wordsBG;
         public static int letterCount = 0;
         public static string chosenWord = "";
+        public static string languageChoice = "";
 
 
 
@@ -63,6 +64,20 @@ namespace Hangman
             int letterCount = 0;
             int randChoice;
 
+            do
+            {
+                Console.Clear();
+                UI.ShowInitMessages();
+                languageChoice = Console.ReadLine();
+                Console.Clear();
+                UI.ShowInitMessages();
+            }
+            while (languageChoice != "bg" && languageChoice != "BG" && languageChoice != "en" && languageChoice != "EN");
+                
+           
+            if (languageChoice == "bg" || languageChoice == "BG") isBG = true;
+            else isBG = false;
+
             if (Program.isBG)
             {
                 wordsBG = BG.wordList.Split(' ');
@@ -81,11 +96,8 @@ namespace Hangman
                 ////////////////////////
             }
             letterCount = chosenWord.Length;
+
             UI.DrawUI();
-
-
-
-
         }
     }
 }
