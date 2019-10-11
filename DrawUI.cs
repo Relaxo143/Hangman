@@ -4,10 +4,19 @@ using System.Threading;
 
 public class UI
 {
+    public static void ShowInitMessages()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine(" Hangman v1.0 by Kalin Lalov and Miro Karagyozov");
+        Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write(" Do you want to play with Bulgarian or English words? Please type 'bg' or 'en':");
+        Console.ForegroundColor = ConsoleColor.Cyan;
+    }
 
     public static void DrawUI()
     {
-
+        Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkBlue;
         Console.WriteLine("Enter a letter to guess the word!");
         for (int i = 0; i < Program.chosenWord.Length; i++)
