@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Hangman
 {
-    class Program
+    class Program //test commit VS
     {
         public static Random rand = new Random();
 
