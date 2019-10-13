@@ -4,7 +4,7 @@ using System.Threading;
 
 public class UI
 {
-    public static int mistakeCounter = 0;
+    public static int mistakeCounter = 0;///test
     public static int positionCounter = 0;
     public static void ShowInitMessages()
     {
