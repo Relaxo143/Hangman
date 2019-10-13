@@ -7,19 +7,17 @@ using System.Threading;
 
 namespace Hangman
 {
-    class Program
+    class Program 
     {
         public static Random rand = new Random();
 
-        public static bool isBG = false; //todo: let player choose this value
+        public static bool isBG = false;
         public static char firstLetter, lastLetter;
         public static string[] wordsEN;
         public static string[] wordsBG;
         public static int letterCount = 0;
         public static string chosenWord = "";
         public static string languageChoice = "";
-
-
 
         static int GetArrayLenght()
         {
@@ -56,7 +54,7 @@ namespace Hangman
                     finalNumber = rand.Next(min, max);
                 }
             }
-            return finalNumber; // work to do; make the numbers more random
+            return finalNumber;
         }
 
         static void Main()

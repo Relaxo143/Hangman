@@ -1,0 +1,6 @@
+C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\bin\Debug\Hangman.exe.config
+C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\bin\Debug\Hangman.exe
+C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\bin\Debug\Hangman.pdb
+C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\obj\Debug\Hangman.csproj.CoreCompileInputs.cache
+C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\obj\Debug\Hangman.exe
+C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\obj\Debug\Hangman.pdb

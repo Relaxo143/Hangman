@@ -5,5 +5,5 @@ class EN
 }
 class BG
 {
-    public static string wordList = "ябълка динозавър сифон";
+    public static string wordList = "ябълка динозавър сифон картоф планина мнозинство президент училище";
 }
