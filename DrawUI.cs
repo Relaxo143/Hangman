@@ -6,6 +6,7 @@ public class UI
 {
     public static int mistakeCounter = 0;
     public static int positionCounter = 0;
+    public static string chosenLetter;
     public static void ShowInitMessages()
     {
         Console.ForegroundColor = ConsoleColor.Red;
@@ -15,6 +16,7 @@ public class UI
         Console.Write(" Do you want to play with Bulgarian or English words? Please type 'bg' or 'en':");
         Console.ForegroundColor = ConsoleColor.Cyan;
     }
+
 
     public static void DrawUI()
     {
@@ -65,41 +67,64 @@ public class UI
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine();
 
-        for (int k = 0; k < 30; k++)
+        while (true) // win or lose condition
         {
+
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             positionCounter++;
-            string chosenLetter = Console.ReadLine().ToLower();
-            
 
 
-            for (int i = 0; i < Program.chosenWord.Length; i++)
+            chosenLetter = Console.ReadLine().ToLower();
+
+
+            while (chosenLetter.Length > 1)
             {
-                if (chosenLetter[0] == Program.chosenWord[i])
+                Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                for (int i = 1; i < chosenLetter.Length + 1; i++)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.SetCursorPosition((i * 2) + 1, 2);
-                    Console.WriteLine(Program.chosenWord[i]);
-                    Console.SetCursorPosition(0, 5);
-                    Console.WriteLine();
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;      
-                    Console.SetCursorPosition(0, 4 + positionCounter);
-                    Console.WriteLine(chosenLetter);                     
+                    Console.Write(" ");
+                }
+                Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                chosenLetter = Console.ReadLine().ToLower();
+
+            }
+
+
+
+            if (chosenLetter.Length == 1)
+            {
+
+                for (int i = 0; i < Program.chosenWord.Length; i++)
+                {
+                    if (chosenLetter[0] == Program.chosenWord[i])
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.SetCursorPosition((i * 2) + 1, 2);
+                        Console.WriteLine(Program.chosenWord[i]);
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.SetCursorPosition(0, 4 + positionCounter);
+                        Console.WriteLine(chosenLetter);
+                    }
+
+
                 }
 
+                if (Program.chosenWord.Contains(chosenLetter) == false)
+                {
 
+                    mistakeCounter++;
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.SetCursorPosition(0, 4 + positionCounter);
+                    Console.WriteLine(chosenLetter);
+                }
             }
-             if (Program.chosenWord.Contains(chosenLetter) == false)
-             {
 
-                mistakeCounter++;
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.SetCursorPosition(0, 4 + positionCounter);
-                Console.WriteLine(chosenLetter);
-            }
-            Console.SetCursorPosition(0, 5 + positionCounter);
 
         }
-    }
 
+    }
 }
+
+
+
