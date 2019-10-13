@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Media;
 
+
 namespace Hangman
 {
-    class Program 
+    class Program
     {
         public static Random rand = new Random();
-        static SoundPlayer DJ = new SoundPlayer(@"C:\Users\Kalin\Source\Repos\Hangman\Rescources\thefatrat-origin.wav");
+        static SoundPlayer DJ = new SoundPlayer(Hangman.Properties.Resources.thefatrat_origin);
         static Thread MusicPlayer = new Thread(PlayMusic);
 
         public static bool isBG = false;
@@ -80,8 +81,8 @@ namespace Hangman
                 UI.ShowInitMessages();
             }
             while (languageChoice != "bg" && languageChoice != "BG" && languageChoice != "en" && languageChoice != "EN");
-                
-           
+
+
             if (languageChoice == "bg" || languageChoice == "BG") isBG = true;
             else isBG = false;
 
@@ -89,13 +90,13 @@ namespace Hangman
             {
                 wordsBG = BG.wordList.Split(' ');
                 randChoice = GetRandomNumber(0, GetArrayLenght());
-                chosenWord = wordsBG[randChoice];             
+                chosenWord = wordsBG[randChoice];
             }
             else
             {
                 wordsEN = EN.wordList.Split(' ');
                 randChoice = GetRandomNumber(0, GetArrayLenght());
-                chosenWord = wordsEN[randChoice];       
+                chosenWord = wordsEN[randChoice];
             }
 
             for (int i = 0; i < chosenWord.Length; i++)
