@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Media;
 
 namespace Hangman
 {
     class Program 
     {
         public static Random rand = new Random();
+        static SoundPlayer DJ = new SoundPlayer(@"C:\Users\Kalin\Source\Repos\Hangman\Rescources\thefatrat-origin.wav");
+        static Thread MusicPlayer = new Thread(PlayMusic);
 
         public static bool isBG = false;
         public static char firstLetter, lastLetter;
@@ -18,6 +21,11 @@ namespace Hangman
         public static int letterCount = 0;
         public static string chosenWord = "";
         public static string languageChoice = "";
+
+        static void PlayMusic()
+        {
+            DJ.PlayLooping();
+        }
 
         static int GetArrayLenght()
         {
@@ -59,6 +67,7 @@ namespace Hangman
 
         static void Main()
         {
+            MusicPlayer.Start();
             int letterCount = 0;
             int randChoice;
 
