@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Hangman;
 using System.Threading;
 
@@ -23,17 +23,7 @@ public class UI
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkBlue;
         Console.WriteLine("Enter a letter to guess the word! " + Program.chosenWord);
-        for (int i = 0; i < Program.chosenWord.Length; i++)
-        {
-            if (i == 0)
-            {
-                Program.firstLetter = Program.chosenWord[i];
-            }
-            if (i == Program.chosenWord.Length - 1)
-            {
-                Program.lastLetter = Program.chosenWord[i];
-            }
-        }
+        
         for (int l = 0; l < Program.chosenWord.Length; l++)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -72,26 +62,36 @@ public class UI
 
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             positionCounter++;
-
-
-            chosenLetter = Console.ReadLine().ToLower();
-
-
-            while (chosenLetter.Length > 1)
-            {
-                Console.SetCursorPosition(0, 5 + positionCounter - 1);
-                for (int i = 1; i < chosenLetter.Length + 1; i++)
-                {
-                    Console.Write(" ");
-                }
-                Console.SetCursorPosition(0, 5 + positionCounter - 1);
+           
                 chosenLetter = Console.ReadLine().ToLower();
 
+
+                while (chosenLetter.Length > 1)
+                {
+                    Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                    for (int i = 1; i < chosenLetter.Length + 1; i++)
+                    {
+                        Console.Write(" ");
+                    }
+                    Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                    chosenLetter = Console.ReadLine().ToLower();
+
+                }
+
+            while (Program.CheckForDuplicates())
+            {             
+
+                Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                 for (int i = 1; i < chosenLetter.Length + 1; i++)
+                 {
+                     Console.Write(" ");
+                 }
+                 Console.SetCursorPosition(0, 5 + positionCounter - 1);
+
+                chosenLetter = Console.ReadLine().ToLower();               
             }
 
-
-
-            if (chosenLetter.Length == 1)
+                if (chosenLetter.Length == 1)
             {
 
                 for (int i = 0; i < Program.chosenWord.Length; i++)
