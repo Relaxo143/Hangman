@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Media;
-
+using System.Windows.Forms;
 
 namespace Hangman
 {
@@ -82,8 +82,11 @@ namespace Hangman
 
         static void Main()
         {
-            MusicPlayer.Start();
-            int letterCount = 0;
+			MusicChoice musicChoice = new MusicChoice();
+			musicChoice.ShowDialog();
+			if (MusicChoice.isMusicWanted) MusicPlayer.Start();
+
+			int letterCount = 0;
             int randChoice;
          
             do
