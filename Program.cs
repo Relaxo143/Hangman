@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +19,13 @@ namespace Hangman
         public static char firstLetter, lastLetter;
         public static string[] wordsEN;
         public static string[] wordsBG;
-        public static int letterCount = 0;
         public static string chosenWord = "";
         public static string languageChoice = "";
+        public string test = "pesho";
+        public static int letterCount = 0;
+       // static int index = 2;
+        public static StringBuilder usedLetters = new StringBuilder();
+       
 
         static void PlayMusic()
         {
@@ -49,6 +53,16 @@ namespace Hangman
             return counter;
         }
 
+           
+        public static bool CheckForDuplicates()
+        {
+            if (usedLetters.ToString().Contains(UI.chosenLetter[0])) return true;
+
+            if (!usedLetters.ToString().Contains(UI.chosenLetter[0])) usedLetters.Append(UI.chosenLetter);
+
+            return false;               
+        }
+
         static int GetRandomNumber(int min, int max)
         {
             Thread.Sleep(rand.Next(1, 250));
@@ -71,7 +85,7 @@ namespace Hangman
             MusicPlayer.Start();
             int letterCount = 0;
             int randChoice;
-
+         
             do
             {
                 Console.Clear();
@@ -101,8 +115,22 @@ namespace Hangman
 
             for (int i = 0; i < chosenWord.Length; i++)
             {
-                ////////////////////////
+                //////////////////////// //debug
             }
+
+            for (int i = 0; i < chosenWord.Length; i++)
+            {
+                if (i == 0)
+                {
+                    firstLetter = chosenWord[i];
+                }
+                if (i == chosenWord.Length - 1)
+                {
+                    lastLetter = chosenWord[i];
+                }
+            }
+            usedLetters.Append(firstLetter);
+            usedLetters.Append(lastLetter);
             letterCount = chosenWord.Length;
 
             UI.DrawUI();
