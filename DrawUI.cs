@@ -9,7 +9,6 @@ public class UI
     public static string chosenLetter;
     public static ConsoleKey n;
     public static ConsoleKey m;
-    public static string l;
 
 
     
@@ -44,7 +43,7 @@ public class UI
                 Console.Write("│");
                 Console.SetCursorPosition(30,8);
                 Console.Write("│");
-                Console.SetCursorPosition(57,3);
+                Console.SetCursorPosition(41,3);
                 Console.WriteLine(mistakeCounter);
                 Console.SetCursorPosition(0, 5 + positionCounter);
 
@@ -62,7 +61,7 @@ public class UI
                 Console.Write("─");
                 Console.SetCursorPosition(35,3);
                 Console.Write("┐");
-                Console.SetCursorPosition(57,3);
+                Console.SetCursorPosition(41,3);
                 Console.WriteLine(mistakeCounter);
                 Console.SetCursorPosition(0, 5 + positionCounter);
 
@@ -72,7 +71,7 @@ public class UI
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.SetCursorPosition(35,4);
                 Console.Write("0");
-                Console.SetCursorPosition(57,3);
+                Console.SetCursorPosition(41,3);
                 Console.WriteLine(mistakeCounter);
                 Console.SetCursorPosition(0, 5 + positionCounter);
             break;
@@ -83,7 +82,7 @@ public class UI
                 Console.Write("│");
                 Console.SetCursorPosition(35,6);
                 Console.Write("│");
-                Console.SetCursorPosition(57,3);
+                Console.SetCursorPosition(41,3);
                 Console.WriteLine(mistakeCounter);
                 Console.SetCursorPosition(0, 5 + positionCounter);
             break;
@@ -94,7 +93,7 @@ public class UI
                 Console.Write("┌");
                 Console.SetCursorPosition(36,5);
                 Console.Write("┐");
-                Console.SetCursorPosition(57,3);
+                Console.SetCursorPosition(41,3);
                 Console.WriteLine(mistakeCounter);
                 Console.SetCursorPosition(0, 5 + positionCounter);
             break;
@@ -141,10 +140,10 @@ public class UI
         }
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine();
-        Console.SetCursorPosition(41,3);
-        Console.Write("MistakeCounter: ");
+        Console.SetCursorPosition(43,3);
+        Console.Write("Wrong Guesses ");
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.SetCursorPosition(57,3);
+        Console.SetCursorPosition(41,3);
         Console.WriteLine(mistakeCounter);
 
 
@@ -164,7 +163,7 @@ public class UI
               Console.Write("│");
               Console.SetCursorPosition(36,7);
               Console.Write("│");
-              Console.SetCursorPosition(57,3);
+              Console.SetCursorPosition(41,3);
               Console.WriteLine(mistakeCounter);
               Console.SetCursorPosition(0, 5 + positionCounter);
               Console.ForegroundColor = ConsoleColor.Cyan;
