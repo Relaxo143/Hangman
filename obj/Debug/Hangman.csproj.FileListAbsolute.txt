@@ -6,3 +6,12 @@ C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\obj\Debug\Hangman.Properties.Resou
 C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\obj\Debug\Hangman.csproj.GenerateResource.cache
 C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\obj\Debug\Hangman.exe
 C:\Users\Kalin\Source\Repos\Relaxo143\Hangman\obj\Debug\Hangman.pdb
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\bin\Debug\Hangman.exe.config
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\bin\Debug\Hangman.exe
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\bin\Debug\Hangman.pdb
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.csprojAssemblyReference.cache
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.MusicChoice.resources
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.Properties.Resources.resources
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.csproj.GenerateResource.cache
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.exe
+C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.pdb

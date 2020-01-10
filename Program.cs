@@ -11,9 +11,11 @@ namespace Hangman
 {
     class Program
     {
+       
         public static Random rand = new Random();
         static SoundPlayer DJ = new SoundPlayer(Hangman.Properties.Resources.thefatrat_origin);
         static Thread MusicPlayer = new Thread(PlayMusic);
+
 
         public static bool isBG = false;
         public static char firstLetter, lastLetter;
@@ -21,10 +23,14 @@ namespace Hangman
         public static string[] wordsBG;
         public static string chosenWord = "";
         public static string languageChoice = "";
-        public string test = "pesho";
         public static int letterCount = 0;
-       // static int index = 2;
+        public static StringBuilder used_letters = new StringBuilder(); 
+        public static StringBuilder letters_word = new StringBuilder(); 
+        public static int stringLength_counter = 0; 
         public static StringBuilder usedLetters = new StringBuilder();
+       // static int index = 2;
+        
+
        
 
         static void PlayMusic()
@@ -86,6 +92,18 @@ namespace Hangman
 			musicChoice.ShowDialog();
 			if (MusicChoice.isMusicWanted) MusicPlayer.Start();
 
+            A:
+
+          isBG = false;
+          chosenWord = "";
+          languageChoice = "";
+          used_letters.Clear(); 
+          letters_word.Clear(); 
+          stringLength_counter = 0;                     
+          usedLetters.Clear();
+          
+          // static int index = 2;
+
 			int letterCount = 0;
             int randChoice;
          
@@ -108,13 +126,32 @@ namespace Hangman
                 wordsBG = BG.wordList.Split(' ');
                 randChoice = GetRandomNumber(0, GetArrayLenght());
                 chosenWord = wordsBG[randChoice];
+
+                for (int i = 1072; i < 1104; i++)
+                {
+                   
+                   if (Program.chosenWord.Contains((char)i))
+                   { 
+                      Program.letters_word.Append((char)i);
+                   }
+                }
             }
             else
             {
                 wordsEN = EN.wordList.Split(' ');
                 randChoice = GetRandomNumber(0, GetArrayLenght());
                 chosenWord = wordsEN[randChoice];
+
+                for (int i = 97; i < 123; i++)
+                {
+                   if (Program.chosenWord.Contains((char)i))
+                   { 
+                      Program.letters_word.Append((char)i);
+                   }
+                }
             }
+
+
 
             for (int i = 0; i < chosenWord.Length; i++)
             {
@@ -137,6 +174,7 @@ namespace Hangman
             letterCount = chosenWord.Length;
 
             UI.DrawUI();
+            goto A;
         }
     }
 }
