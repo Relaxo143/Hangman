@@ -101,6 +101,7 @@ namespace Hangman
           letters_word.Clear(); 
           stringLength_counter = 0;                     
           usedLetters.Clear();
+          
           // static int index = 2;
 
 			int letterCount = 0;
@@ -125,21 +126,32 @@ namespace Hangman
                 wordsBG = BG.wordList.Split(' ');
                 randChoice = GetRandomNumber(0, GetArrayLenght());
                 chosenWord = wordsBG[randChoice];
+
+                for (int i = 1072; i < 1104; i++)
+                {
+                   
+                   if (Program.chosenWord.Contains((char)i))
+                   { 
+                      Program.letters_word.Append((char)i);
+                   }
+                }
             }
             else
             {
                 wordsEN = EN.wordList.Split(' ');
                 randChoice = GetRandomNumber(0, GetArrayLenght());
                 chosenWord = wordsEN[randChoice];
-            }
 
-            for (int i = 97; i < 123; i++)
-            {
-                if (Program.chosenWord.Contains((char)i))
-                { 
-                    Program.letters_word.Append((char)i);
+                for (int i = 97; i < 123; i++)
+                {
+                   if (Program.chosenWord.Contains((char)i))
+                   { 
+                      Program.letters_word.Append((char)i);
+                   }
                 }
             }
+
+
 
             for (int i = 0; i < chosenWord.Length; i++)
             {
