@@ -17,10 +17,12 @@ public class UI
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(" Hangman v1.0 by Kalin Lalov and Miro Karagyozov");
         Console.WriteLine();
-        Console.ForegroundColor = ConsoleColor.Green;
+		Console.ForegroundColor = ConsoleColor.Blue;
+		Console.WriteLine(" Hint: You can toggle the music playback with the NumLock key!");
+		Console.WriteLine();
+		Console.ForegroundColor = ConsoleColor.Green;
         Console.Write(" Do you want to play with Bulgarian or English words? Please type 'bg' or 'en':");
-        Console.ForegroundColor = ConsoleColor.Cyan;
-     
+        Console.ForegroundColor = ConsoleColor.Cyan;	   
     }
 
 

@@ -14,10 +14,13 @@ namespace Hangman
        
         public static Random rand = new Random();
         static SoundPlayer DJ = new SoundPlayer(Hangman.Properties.Resources.thefatrat_origin);
-        static Thread MusicPlayer = new Thread(PlayMusic);
+		public static bool isMusicPlaying; 
+     //   static Thread MusicPlayer = new Thread(PlayMusic);
+		static Thread NumChecker = new Thread(ToggleMusicPlayback);
 
 
         public static bool isBG = false;
+		public static bool numState;
         public static char firstLetter, lastLetter;
         public static string[] wordsEN;
         public static string[] wordsBG;
@@ -28,16 +31,31 @@ namespace Hangman
         public static StringBuilder letters_word = new StringBuilder(); 
         public static int stringLength_counter = 0; 
         public static StringBuilder usedLetters = new StringBuilder();
-       // static int index = 2;
-        
+ 
 
-       
-
-        static void PlayMusic()
-        {
-			Thread.Sleep(1000);
-            DJ.PlayLooping();
-        }
+		static void ToggleMusicPlayback()
+		{
+			while (true)
+			{
+			                                                                                
+				if (Console.NumberLock != numState)
+				{
+					if (isMusicPlaying)
+					{
+						DJ.Stop();
+						isMusicPlaying = false;
+						numState = !numState;
+					}
+					else
+					{
+						DJ.PlayLooping();
+						isMusicPlaying = true;
+						numState = !numState;
+					}
+					Thread.Sleep(100);
+				}
+			  }
+			}
 
         static int GetArrayLenght()
         {
@@ -89,9 +107,17 @@ namespace Hangman
 
         static void Main()
         {
+			numState = Console.NumberLock;
 			MusicChoice musicChoice = new MusicChoice();
 			musicChoice.ShowDialog();
-			if (MusicChoice.isMusicWanted) MusicPlayer.Start();
+			if (MusicChoice.isMusicWanted)
+			{
+				DJ.PlayLooping();
+				isMusicPlaying = true;
+			}
+			else isMusicPlaying = false;
+			NumChecker.Start();
+
 
             A:
 
