@@ -1,9 +1,9 @@
-﻿class EN
+class EN
 {
-    public static string wordList = "hypothalamus verdict tranquilize principality country humanoid robot keyboard confident eccentric skyscraper blockchain dungeon pencil rollercoaster violin hypnotize microphone penis squirrel accountant irresponsive amphibious procreate obstruct";
-
+   public static string wordList = "comment clockwork transcedental bloodseeking musical abstract grammophone hypothalamus tranquilize principality humanoid keyboard confident eccentric skyscraper blockchain rollercoaster hypnotize microphone squirrel accountant irresponsive amphibious procreate obstruct";
+    
 }
 class BG
 {
-    public static string wordList = "ябълка динозавър сифон картоф планина мнозинство президент училище";
+	public static string wordList = "конструктор възпламеняване електронен музикален лироепически страдание страдалец безстрашие планетарен вселенски божествен окомплектоване възхищение съдбовен екзистенциален масивен авторитетен недостатъчен незадоволителен сомбреро книжовен  трансцеденталност екзистенциализъм психология интерфаза лексикон лексикология морфология биология теоцентризъм антропоцентризъм хелиоцентризъм екскремент програмиране клавиатура математика колесница магистрала валдхорна оркестър празненство подложка изменчивост унаследяване комунизъм слушалки реформация плебисцит платформа репарации референдум конституция правителство парламент ренатурация урбанизация денатурация часовник растениевъдство животновъдство металургия хексахлороциклохексан тоалетна прозорец автомонтьор тираджия йонизация компютър съдилище компактдиск перфоратор география чалготека доминион дискотека статуетка разклонител самозадоволяване кавалджия изпълнител майсторлък карагьоз синекдоха паралелизъм апосиопеза трафопост дисоциация асоциация пермутация адекватност вариация комбинация халюцинация куртизанка демонология фармация размножаване съвкупляване подстригване секуларизация цезаропапизъм биополимер алостерично хеликаза полимераза настъпвам преразпределяне отделяне опълчение въстание чорбаджия саламура регистър дезодорант ароматизатор боядисване пазаруване естерификация възглавница безжичен алитерация"; 
 }
