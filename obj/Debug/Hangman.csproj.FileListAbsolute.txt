@@ -15,3 +15,4 @@ C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.Properti
 C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.csproj.GenerateResource.cache
 C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.exe
 C:\Users\Miro-GamingPC\Source\Repos\MiroBoyBG\Hangman\obj\Debug\Hangman.pdb
+C:\Users\Kalin\source\repos\Relaxo143\Hangman\obj\Debug\Hangman.MusicChoice.resources
