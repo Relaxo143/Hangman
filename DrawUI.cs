@@ -7,8 +7,8 @@ public class UI
     public static int mistakeCounter = 0;
     public static int positionCounter = 0;
     public static string chosenLetter;
-    public static ConsoleKey n;
-    public static ConsoleKey m;
+    public static ConsoleKey firstPressed; // must be a letter
+    public static ConsoleKey secondPressed; // must be 'enter'
 
 
     
@@ -106,9 +106,11 @@ public class UI
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkBlue;
-        Console.WriteLine("Enter a letter to guess the word! ");
-        
-        for (int l = 0; l < Program.chosenWord.Length; l++)
+		if (!Program.isBG) Console.WriteLine("Type a letter to guess the word and hit Enter!");
+		else Console.WriteLine("Напишете буква, за да познаете думата и натиснете Enter!");
+
+
+		for (int l = 0; l < Program.chosenWord.Length; l++)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             if (l == 0)
@@ -141,10 +143,12 @@ public class UI
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine();
         Console.SetCursorPosition(43,3);
-        Console.Write("Wrong Guesses ");
-        Console.ForegroundColor = ConsoleColor.Blue;
+		if (!Program.isBG) Console.Write("Wrong Guesses: ");
+		else Console.Write("Погрешни Опити: ");
+		Console.ForegroundColor = ConsoleColor.Blue;
         Console.SetCursorPosition(41,3);
-        Console.WriteLine(mistakeCounter);
+		Console.WriteLine(mistakeCounter);
+		Console.Write("/6");
 
 
             string existingLetters = Program.used_letters.ToString();
@@ -167,12 +171,22 @@ public class UI
               Console.WriteLine(mistakeCounter);
               Console.SetCursorPosition(0, 5 + positionCounter);
               Console.ForegroundColor = ConsoleColor.Cyan;
-              Console.WriteLine("The word was: " + Program.chosenWord);
-              Thread.Sleep(3000);
+				if (!Program.isBG)
+				{
+					Console.WriteLine("The word was: " + Program.chosenWord);
+					Console.WriteLine("Press any key to continue...");
+				}
+				else
+				{
+					Console.WriteLine("Думата беше: " + Program.chosenWord);
+					Console.WriteLine("Натиснете произволен клавиш, за да продължите...");
+				}
+				Console.ReadKey();
               Console.Clear();
               Console.ForegroundColor = ConsoleColor.DarkRed;
-              Console.WriteLine("YOU LOST!!!");
-              Thread.Sleep(3000);
+				if (Program.isBG) Console.WriteLine("            YOU LOST!!!");
+				else Console.WriteLine("            ЗАГУБИХТЕ!!!");
+				Thread.Sleep(4000);
               Console.Clear();
               mistakeCounter = 0;
               positionCounter = 0;
@@ -184,8 +198,17 @@ public class UI
              { 
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine("YOU WON!!!");
-                    Thread.Sleep(4000);
+				if (!Program.isBG)
+				{
+					Console.WriteLine("Congratulations! YOU WON!!!");
+					Console.WriteLine("Press any key to try again...");
+				}
+				else
+				{
+					Console.WriteLine("Поздравления! Спечелихте!");
+					Console.WriteLine("Натиснете произволен клавиш, за да продължите...");
+				}
+					Console.ReadKey();
                     Console.Clear();
                     mistakeCounter = 0;
                     positionCounter = 0;
@@ -205,43 +228,43 @@ public class UI
             {
               do
               {
-                if(m != ConsoleKey.Enter)
+                if(secondPressed != ConsoleKey.Enter)
                 {
                     Console.SetCursorPosition(0, 5 + positionCounter - 1);
                     Console.Write("  "); 
                 }
-                n = ConsoleKey.Clear; 
-                m = ConsoleKey.Clear; 
+				firstPressed = ConsoleKey.Clear;
+				secondPressed = ConsoleKey.Clear; 
                 Console.SetCursorPosition(0, 5 + positionCounter - 1);
-                n = Console.ReadKey().Key;
-                if(n == ConsoleKey.Enter)
+				firstPressed = Console.ReadKey().Key;
+                if(firstPressed == ConsoleKey.Enter)
                 {
                     goto EnterError;
                 }
-                chosenLetter = n.ToString().ToLower();
-                m = Console.ReadKey().Key;
+                chosenLetter = firstPressed.ToString().ToLower();
+				secondPressed = Console.ReadKey().Key;
               }
-              while(m != ConsoleKey.Enter);
+              while(secondPressed != ConsoleKey.Enter);
             }
             if(Program.isBG == true)
             {
               do
               {
-                if(m != ConsoleKey.Enter)
+                if(secondPressed != ConsoleKey.Enter)
                 {
                     Console.SetCursorPosition(0, 5 + positionCounter - 1);
                     Console.Write("  "); 
                 }
-                n = ConsoleKey.Clear;
-                m = ConsoleKey.Clear; 
+				firstPressed = ConsoleKey.Clear;
+				secondPressed = ConsoleKey.Clear; 
                 Console.SetCursorPosition(0, 5 + positionCounter - 1);
-                n = Console.ReadKey().Key;
-                if(n == ConsoleKey.Enter)
+				firstPressed = Console.ReadKey().Key;
+                if(firstPressed == ConsoleKey.Enter)
                 {
                     goto EnterError;
                 }
-                chosenLetter = n.ToString().ToLower();
-                    switch(n)
+                chosenLetter = firstPressed.ToString().ToLower();
+                    switch(firstPressed)
                     {
                          case ConsoleKey.Q:
                          chosenLetter = "я";      
@@ -334,9 +357,9 @@ public class UI
                          chosenLetter = "щ";      
                          break;
                     }
-                m = Console.ReadKey().Key;
+					secondPressed = Console.ReadKey().Key;
               }
-              while(m != ConsoleKey.Enter);
+              while(secondPressed != ConsoleKey.Enter);
             }
 
 

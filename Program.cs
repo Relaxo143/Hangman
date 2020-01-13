@@ -35,6 +35,7 @@ namespace Hangman
 
         static void PlayMusic()
         {
+			Thread.Sleep(1000);
             DJ.PlayLooping();
         }
 
