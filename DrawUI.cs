@@ -20,8 +20,7 @@ public class UI
         Console.ForegroundColor = ConsoleColor.Green;
         Console.Write(" Do you want to play with Bulgarian or English words? Please type 'bg' or 'en':");
         Console.ForegroundColor = ConsoleColor.Cyan;
-
-        
+     
     }
 
 
@@ -143,12 +142,15 @@ public class UI
         Console.ForegroundColor = ConsoleColor.DarkMagenta;
         Console.WriteLine();
         Console.SetCursorPosition(43,3);
-		if (!Program.isBG) Console.Write("Wrong Guesses: ");
-		else Console.Write("Погрешни Опити: ");
+		Console.ForegroundColor = ConsoleColor.Blue;
+		Console.Write("/ 6 ");
+		Console.ForegroundColor = ConsoleColor.DarkMagenta;
+		if (!Program.isBG) Console.Write("Wrong Guesses");
+		else Console.Write("Погрешни Опита");
 		Console.ForegroundColor = ConsoleColor.Blue;
         Console.SetCursorPosition(41,3);
 		Console.WriteLine(mistakeCounter);
-		Console.Write("/6");
+		
 
 
             string existingLetters = Program.used_letters.ToString();
@@ -184,9 +186,9 @@ public class UI
 				Console.ReadKey();
               Console.Clear();
               Console.ForegroundColor = ConsoleColor.DarkRed;
-				if (Program.isBG) Console.WriteLine("            YOU LOST!!!");
-				else Console.WriteLine("            ЗАГУБИХТЕ!!!");
-				Thread.Sleep(4000);
+			  if (!Program.isBG) Console.WriteLine("            YOU LOST!!!");
+			  else Console.WriteLine("            ЗАГУБИХТЕ!!!");
+			  Thread.Sleep(4000);
               Console.Clear();
               mistakeCounter = 0;
               positionCounter = 0;
