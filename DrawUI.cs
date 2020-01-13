@@ -25,7 +25,7 @@ public class UI
     }
 
 
-    public static void MistakePhases()
+    public static void DrawHangingPhases()
     {
         switch(mistakeCounter)
             {
@@ -151,7 +151,7 @@ public class UI
 
         while (true) // win or lose condition
         {
-            MistakePhases();
+            DrawHangingPhases();
             if(mistakeCounter == 6)
             {
               Console.ForegroundColor = ConsoleColor.Blue;
