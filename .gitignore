@@ -2,7 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/bin/Debug
-/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
-/obj
-/.vs/Hangman/v16
+bin/Debug
+obj
+.vs/Hangman/v16
