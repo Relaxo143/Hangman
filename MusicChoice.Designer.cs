@@ -70,7 +70,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.CheckBox musicCheckBox;
+		public System.Windows.Forms.CheckBox musicCheckBox;
 		private System.Windows.Forms.Button confirmButton;
 	}
 }

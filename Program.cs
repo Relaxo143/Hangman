@@ -11,7 +11,8 @@ namespace Hangman
 {
     class Program
     {
-       
+		public static string versionNumber = "v1.1";
+
         public static Random rand = new Random();
         static SoundPlayer DJ = new SoundPlayer(Hangman.Properties.Resources.thefatrat_origin);
 		public static bool isMusicPlaying; 
@@ -108,7 +109,9 @@ namespace Hangman
         static void Main()
         {
 			numState = Console.NumberLock;
+			Console.Title = "Hangman " + versionNumber;
 			MusicChoice musicChoice = new MusicChoice();
+			musicChoice.musicCheckBox.Checked = true;
 			musicChoice.ShowDialog();
 			if (MusicChoice.isMusicWanted)
 			{
