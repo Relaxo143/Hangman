@@ -2,10 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-bin
+bin/Debug
 obj
-.vs/Hangman/v16
-
-/bin
-/obj
-/.vs/Hangman/v16
+.vs
