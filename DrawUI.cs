@@ -15,7 +15,7 @@ public class UI
     public static void ShowInitMessages()
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(" Hangman v1.0 by Kalin Lalov and Miro Karagyozov");
+        Console.WriteLine(" Hangman " + Program.versionNumber + " by Kalin Lalov and Miro Karagyozov");
         Console.WriteLine();
 		Console.ForegroundColor = ConsoleColor.Blue;
 		Console.WriteLine(" Hint: You can toggle the music playback with the NumLock key!");
@@ -205,11 +205,29 @@ public class UI
 				if (!Program.isBG)
 				{
 					Console.WriteLine("Congratulations! YOU WON!!!");
-					Console.WriteLine("Press any key to try again...");
+					Console.Write("You guessed the word ");
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.Write(Program.chosenWord);
+					Console.ForegroundColor = ConsoleColor.DarkCyan;
+					Console.Write(" correctly with ");
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.Write(6 - mistakeCounter);
+					Console.ForegroundColor = ConsoleColor.DarkCyan;
+					Console.WriteLine(" live(s) left!");
+					Console.WriteLine("Press any key to continue...");
 				}
 				else
 				{
 					Console.WriteLine("Поздравления! Спечелихте!");
+					Console.Write("Познахте думата ");
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.Write(Program.chosenWord);
+					Console.ForegroundColor = ConsoleColor.DarkCyan;
+					Console.Write(" правилно и Ви останаха още ");
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.Write(6 - mistakeCounter);
+					Console.ForegroundColor = ConsoleColor.DarkCyan;
+					Console.WriteLine(" живота!");
 					Console.WriteLine("Натиснете произволен клавиш, за да продължите...");
 				}
 					Console.ReadKey();
