@@ -108,6 +108,7 @@ namespace Hangman
         static void Main()
         {
 			numState = Console.NumberLock;
+			Console.Title = "Hangman v1.1";
 			MusicChoice musicChoice = new MusicChoice();
 			musicChoice.ShowDialog();
 			if (MusicChoice.isMusicWanted)
