@@ -15,15 +15,20 @@ public class UI
     public static void ShowInitMessages()
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(" Hangman " + Program.versionNumber + " by Kalin Lalov and Miro Karagyozov");
-        Console.WriteLine();
+        Console.Write(" Hangman " + Program.versionNumber + " by Kalin Lalov and Miro Karagyozov");
+		Console.ForegroundColor = ConsoleColor.White;
+		Console.WriteLine("        Your personal best streak is: " + Program.bestStreak + " games won in a row!");
+		Console.WriteLine();
 		Console.ForegroundColor = ConsoleColor.Blue;
 		Console.WriteLine(" Hint: You can toggle the music playback with the NumLock key!");
 		Console.WriteLine();
 		Console.ForegroundColor = ConsoleColor.Green;
         Console.Write(" Do you want to play with Bulgarian or English words? Please type 'bg' or 'en':");
-        Console.ForegroundColor = ConsoleColor.Cyan;	   
-    }
+        Console.ForegroundColor = ConsoleColor.Cyan;
+		
+
+
+	}
 
 
     public static void DrawHangingPhases()
@@ -162,6 +167,7 @@ public class UI
             DrawHangingPhases();
             if(mistakeCounter == 6)
             {
+				Program.sessionStreak = 0;
               Console.ForegroundColor = ConsoleColor.Blue;
               Console.SetCursorPosition(34,6);
               Console.Write("┌");
@@ -173,24 +179,26 @@ public class UI
               Console.Write("│");
               Console.SetCursorPosition(41,3);
               Console.WriteLine(mistakeCounter);
-              Console.SetCursorPosition(0, 5 + positionCounter);
-              Console.ForegroundColor = ConsoleColor.Cyan;
+              Console.SetCursorPosition(0, 5 + positionCounter);    
 				if (!Program.isBG)
 				{
-					Console.WriteLine("The word was: " + Program.chosenWord);
-					Console.WriteLine("Press any key to continue...");
+					Console.ForegroundColor = ConsoleColor.DarkRed;
+				    Console.WriteLine(" YOU LOST!!!");
+					Console.WriteLine(" Streak broken!");
+					Console.Write(" The word was: ");
+					Console.ForegroundColor = ConsoleColor.Cyan;
+					Console.WriteLine(Program.chosenWord);
+					Console.ForegroundColor = ConsoleColor.Blue;
+					Console.WriteLine(" Press any key to continue...");
 				}
 				else
 				{
-					Console.WriteLine("Думата беше: " + Program.chosenWord);
-					Console.WriteLine("Натиснете произволен клавиш, за да продължите...");
+					Console.WriteLine(" ЗАГУБИХТЕ!!!");
+					Console.WriteLine(" Поредицата Ви се развали!");
+					Console.WriteLine(" Думата беше: " + Program.chosenWord);
+					Console.WriteLine(" Натиснете произволен клавиш, за да продължите...");
 				}
-				Console.ReadKey();
-              Console.Clear();
-              Console.ForegroundColor = ConsoleColor.DarkRed;
-			  if (!Program.isBG) Console.WriteLine("            YOU LOST!!!");
-			  else Console.WriteLine("            ЗАГУБИХТЕ!!!");
-			  Thread.Sleep(4000);
+			  Console.ReadKey();           
               Console.Clear();
               mistakeCounter = 0;
               positionCounter = 0;
@@ -199,13 +207,16 @@ public class UI
             }
 
              if (Program.letters_word.Length == Program.used_letters.Length + 2)
-             { 
+             {
+				Program.sessionStreak++;
+				if (Program.sessionStreak > Program.bestStreak) Program.bestStreak = Program.sessionStreak;
+				Disk.WriteStreak(Program.bestStreak);
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
 				if (!Program.isBG)
 				{
-					Console.WriteLine("Congratulations! YOU WON!!!");
-					Console.Write("You guessed the word ");
+					Console.WriteLine(" Congratulations! YOU WON!!!");
+					Console.Write(" You guessed the word ");
 					Console.ForegroundColor = ConsoleColor.Green;
 					Console.Write(Program.chosenWord);
 					Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -214,12 +225,14 @@ public class UI
 					Console.Write(6 - mistakeCounter);
 					Console.ForegroundColor = ConsoleColor.DarkCyan;
 					Console.WriteLine(" live(s) left!");
-					Console.WriteLine("Press any key to continue...");
+					Console.WriteLine();
+					Console.WriteLine(" Current streak: " + Program.sessionStreak + " wins in a row!");
+					Console.WriteLine(" Press any key to continue...");
 				}
 				else
 				{
-					Console.WriteLine("Поздравления! Спечелихте!");
-					Console.Write("Познахте думата ");
+					Console.WriteLine(" Поздравления! Спечелихте!");
+					Console.Write(" Познахте думата ");
 					Console.ForegroundColor = ConsoleColor.Green;
 					Console.Write(Program.chosenWord);
 					Console.ForegroundColor = ConsoleColor.DarkCyan;
@@ -228,7 +241,9 @@ public class UI
 					Console.Write(6 - mistakeCounter);
 					Console.ForegroundColor = ConsoleColor.DarkCyan;
 					Console.WriteLine(" живота!");
-					Console.WriteLine("Натиснете произволен клавиш, за да продължите...");
+					Console.WriteLine();
+					Console.WriteLine(Program.sessionStreak + " Поредни печалби!");
+					Console.WriteLine(" Натиснете произволен клавиш, за да продължите...");
 				}
 					Console.ReadKey();
                     Console.Clear();
