@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Media;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Hangman
 {
     class Program
     {
 		public static string versionNumber = "v1.1";
+
+		public static string userName;
 
         public static Random rand = new Random();
         static SoundPlayer DJ = new SoundPlayer(Hangman.Properties.Resources.thefatrat_origin);
@@ -110,8 +113,11 @@ namespace Hangman
 
         static void Main()
         {
+		    userName = Environment.UserName;
 			numState = Console.NumberLock;
 			Console.Title = "Hangman " + versionNumber;
+			Disk.SetupDataDir();
+			bestStreak = Disk.LoadStreak();
 			MusicChoice musicChoice = new MusicChoice();
 			musicChoice.musicCheckBox.Checked = true;
 			musicChoice.ShowDialog();

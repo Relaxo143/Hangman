@@ -179,14 +179,16 @@ public class UI
               Console.Write("│");
               Console.SetCursorPosition(41,3);
               Console.WriteLine(mistakeCounter);
-              Console.SetCursorPosition(0, 5 + positionCounter);
-              Console.ForegroundColor = ConsoleColor.Cyan;
+              Console.SetCursorPosition(0, 5 + positionCounter);    
 				if (!Program.isBG)
 				{
 					Console.ForegroundColor = ConsoleColor.DarkRed;
 				    Console.WriteLine(" YOU LOST!!!");
 					Console.WriteLine(" Streak broken!");
-					Console.WriteLine(" The word was: " + Program.chosenWord);
+					Console.Write(" The word was: ");
+					Console.ForegroundColor = ConsoleColor.Cyan;
+					Console.WriteLine(Program.chosenWord);
+					Console.ForegroundColor = ConsoleColor.Blue;
 					Console.WriteLine(" Press any key to continue...");
 				}
 				else
@@ -196,10 +198,7 @@ public class UI
 					Console.WriteLine(" Думата беше: " + Program.chosenWord);
 					Console.WriteLine(" Натиснете произволен клавиш, за да продължите...");
 				}
-				Console.ReadKey();
-              Console.Clear();
-              
-			  Thread.Sleep(4000);
+			  Console.ReadKey();           
               Console.Clear();
               mistakeCounter = 0;
               positionCounter = 0;
@@ -211,6 +210,7 @@ public class UI
              {
 				Program.sessionStreak++;
 				if (Program.sessionStreak > Program.bestStreak) Program.bestStreak = Program.sessionStreak;
+				Disk.WriteStreak(Program.bestStreak);
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkCyan;
 				if (!Program.isBG)
