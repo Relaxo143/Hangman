@@ -263,6 +263,7 @@ public class UI
             EnterError:
             if(Program.isBG == false)
             {
+                 UndefinedSymbol:
               do
               {
                 if(secondPressed != ConsoleKey.Enter)
@@ -274,6 +275,14 @@ public class UI
 				secondPressed = ConsoleKey.Clear; 
                 Console.SetCursorPosition(0, 5 + positionCounter - 1);
 				firstPressed = Console.ReadKey().Key;
+                 if(firstPressed.ToString().Length > 1)
+                 {
+                        firstPressed = ConsoleKey.Clear;
+                        Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                        Console.WriteLine("   ");
+                        Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                        goto UndefinedSymbol;
+                 }
                 if(firstPressed == ConsoleKey.Enter)
                 {
                     goto EnterError;
@@ -285,6 +294,7 @@ public class UI
             }
             if(Program.isBG == true)
             {
+               UndefinedSymbol:
               do
               {
                 if(secondPressed != ConsoleKey.Enter)
@@ -296,6 +306,14 @@ public class UI
 				secondPressed = ConsoleKey.Clear; 
                 Console.SetCursorPosition(0, 5 + positionCounter - 1);
 				firstPressed = Console.ReadKey().Key;
+                 if(firstPressed.ToString().Length > 1)
+                 {
+                        firstPressed = ConsoleKey.Clear;
+                        Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                        Console.WriteLine("   ");
+                        Console.SetCursorPosition(0, 5 + positionCounter - 1);
+                        goto UndefinedSymbol;
+                 }
                 if(firstPressed == ConsoleKey.Enter)
                 {
                     goto EnterError;
