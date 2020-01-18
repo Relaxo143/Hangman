@@ -1,6 +1,6 @@
 class EN
 {
-   public static string wordList = "comment clockwork transcedental bloodseeking musical abstract grammophone hypothalamus tranquilize principality humanoid keyboard confident eccentric skyscraper blockchain rollercoaster hypnotize microphone squirrel accountant irresponsive amphibious procreate obstruct";
+   public static string wordList = "loneliness altitude indistinguishable indispensable elaborate uncopyrightable strengths unimaginatively conscientiousness enslavement regulatory inconsistencies oversimplified wholeheartedly industrialized assassination ideology inevitabillity influencer accidental altruism nihilism crucifiction algorithmic transparent translucent solidified propagated broadcast enlightenment randomization coordination analysis illustration government neurologist amplification exasperated advertisement annihilation interference infrastructure infectious accommodation sophisticated generalization interoperability prioritisation reconstruction credentials verification consolidation requirement inadvertently incomprehensible assumption comment clockwork transcedental bloodseeking musical abstract grammophone hypothalamus tranquilize principality humanoid keyboard confident eccentric skyscraper blockchain rollercoaster hypnotize microphone squirrel accountant irresponsive amphibious procreate obstruct";
     
 }
 class BG
