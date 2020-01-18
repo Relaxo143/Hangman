@@ -32,6 +32,8 @@ namespace Hangman
         public static StringBuilder letters_word = new StringBuilder(); 
         public static int stringLength_counter = 0; 
         public static StringBuilder usedLetters = new StringBuilder();
+		public static int bestStreak = 0;
+		public static int sessionStreak = 0;
  
 
 		static void ToggleMusicPlayback()
